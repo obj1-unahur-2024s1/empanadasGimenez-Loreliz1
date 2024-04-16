@@ -1,0 +1,19 @@
+import. example.*
+
+test "gastos galvan" {
+	galvan.gastar(40000)
+	galvan.gastar(80000)
+	galvan.cobrarSueldo()
+	galvan.pagarDeuda()
+	
+	assert.equals (30000 . galvan.totalDinero())
+
+
+}
+/*Galván arranca con deuda en 0 y dinero en 0. Su sueldo (que aún no cobró) es de 150000.
+Galván gasta 40000, totalDeuda()debe ser 40000, totalDinero()debe ser 0.
+Galván gastó otros 80000, totalDeuda()pasó a 120000, totalDinero()sigue en 0.
+Galván cobra, con los 150000 que recibe paga toda su deuda y le sobran 30000 pesos. 
+* Por lo tanto, totalDeuda()debe ser 0 y totalDinero()debe ser 30000.
+Galván gasta 250000, cubre 30000 con el dinero que tiene, el resto es deuda. totalDeuda()queda en 220000, totalDinero()en 0.
+Galván cobra, tiene que dedicar los 150000 a pagar deudas, y no le alcanza. Ahora totalDeuda()pasa a 70000 y totalDinero()a 0. */
